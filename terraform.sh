@@ -16,12 +16,12 @@ cd $GOPATH/src/github.com/hashicorp/terraform
 # go mod tidy
 echo Compliling Tools
 make tools
-
 echo Compliling Terrform Master
 make dev
-
 echo Removing the master build artifact
 rm /home/vagrant/go/bin/terraform
+git stash
+git stash clear
 
 echo Checking out the f-tfignore branch
 git checkout f-tfignore
