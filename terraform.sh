@@ -14,7 +14,7 @@ git clone https://github.com/hashicorp/terraform.git $GOPATH/src/github.com/hash
 cd $GOPATH/src/github.com/hashicorp/terraform
 
 echo Checking out the f-tfignore branch
-git checkout -b f-tfignore
+git checkout f-tfignore
 
 # go mod tidy
 echo Compliling Tools
