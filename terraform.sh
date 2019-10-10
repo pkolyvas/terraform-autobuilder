@@ -13,14 +13,23 @@ echo Cloning the Terraform repository
 git clone https://github.com/hashicorp/terraform.git $GOPATH/src/github.com/hashicorp/terraform
 cd $GOPATH/src/github.com/hashicorp/terraform
 
-echo Checking out the f-tfignore branch
-git checkout f-tfignore
-
 # go mod tidy
 echo Compliling Tools
 make tools
-echo Compliling Terrform
+
+echo Compliling Terrform Master
 make dev
+
+echo Removing the master build artifact
+rm /home/vagrant/go/bin/terraform
+
+echo Checking out the f-tfignore branch
+git checkout f-tfignore
+make tools
+
+echo Compiling the feature branch
+make dev
+
 cp /home/vagrant/go/bin/terraform /home/vagrant/workspace/
 
 echo Done. SSH into Vagrant and you should be good to go.
