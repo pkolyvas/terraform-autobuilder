@@ -3,7 +3,11 @@
 This is a simple Vagrant file and some scripts to setup a disposable environment for Terraform builds to assist in testing, validating and/or debugging new features of Terraform.
 
 ## Requirements
-- Vagrant
+- Vagrant (and virtualbox or similar)
+
+## How to use
+- `vagrant up` will get you a version of Terraform compiled from the `master` branch
+- Set an environment variable named `BRANCH` on your host machine to build a branch of your choice
 
 ## What you'll have
 
@@ -16,4 +20,5 @@ At the moment, running `vagrant up` will:
 
 ## To Do
 - An easy way to access credentials or something from within Vagrant
+- Target a specifc Go version
 - So much more
