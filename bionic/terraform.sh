@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Set your branch here
-tfBranch=f-tfignore
+tfBranch=$(eval echo \$\{BRANCH\})
 
 # mkdir go
 
@@ -18,7 +18,7 @@ echo Cloning the Terraform repository
 git clone https://github.com/hashicorp/terraform.git src/github.com/hashicorp/terraform
 cd src/github.com/hashicorp/terraform
 
-echo Checking out the branch
+echo Checking out the branch $tfBranch
 git checkout $tfBranch
 make tools
 
