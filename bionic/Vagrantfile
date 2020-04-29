@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "hashicorp/bionic64"
   config.vm.define "terraform-build-env"
   config.vm.provision :shell, path: "bootstrap.sh"
-  config.vm.provision :shell, privileged: false, path: "terraform.sh", env: {TF_FORK:ENV['TF_FORK'], TF_BRANCH:ENV['TF_BRANCH']}
+  config.vm.provision :shell, privileged: false, path: "terraform.sh", env: {TF_FORK:ENV['TF_FORK'], TF_BRANCH:ENV['TF_BRANCH'], AWS_ACCESS_KEY_ID:ENV['AWS_ACCESS_KEY_ID'], AWS_SECRET_ACCESS_KEY:ENV['AWS_SECRET_ACCESS_KEY'], AWS_DEFAULT_REGION:ENV['AWS_DEFAULT_REGION']}
   config.vm.synced_folder ".", "/vagrant", disabled: true
   config.vm.synced_folder "workspace/", "/home/vagrant/workspace"
 end
