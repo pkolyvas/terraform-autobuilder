@@ -1,10 +1,12 @@
-# Set an environmnet variable named BRANCH to build a branch other than master
+# Set an environmnet variable named TF_BRANCH to build a branch other than master
+# Set an environment variable named TF_FORK
 
 Vagrant.configure("2") do |config|
   config.vm.box = "hashicorp/bionic64"
   config.vm.define "terraform-build-env"
   config.vm.provision :shell, path: "bootstrap.sh"
-  config.vm.provision :shell, privileged: false, path: "terraform.sh", env: {BRANCH:ENV['BRANCH']}
+  config.vm.provision :shell, privileged: false, path: "terraform.sh", env: {BRANCH:ENV['TF_FORK']}
+  config.vm.provision :shell, privileged: false, path: "terraform.sh", env: {BRANCH:ENV['TF_BRANCH']}
   config.vm.synced_folder ".", "/vagrant", disabled: true
   config.vm.synced_folder "workspace/", "/home/vagrant/workspace"
 end
