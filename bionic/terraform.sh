@@ -22,7 +22,10 @@ cd src/github.com/hashicorp/terraform
 echo Checking out the branch $tfBranch
 git checkout $tfBranch
 
+echo Getting Required Go Version
 goVer="$(cat .go-version)"
+
+cd ~
 
 echo Setting up Go...
 
@@ -38,8 +41,6 @@ sudo rm -rf /usr/local/go
 echo putting Go in its place...
 sudo mv -f ./go /usr/local
 
-make tools
-
 
 echo Exporting appropriate paths
 
@@ -48,6 +49,9 @@ export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin
 echo "GOPATH=$HOME/go" >> ~/.profile
 echo "PATH=$PATH:/usr/local/go/bin:$GOPATH/bin" >> ~/.profile
+
+cd src/github.com/hashicorp/terraform
+make tools
 
 echo Compiling/installing the feature branch
 go install
