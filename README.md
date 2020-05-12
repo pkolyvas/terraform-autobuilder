@@ -16,7 +16,7 @@ This is a simple Vagrant file and some scripts to setup a disposable environment
 
 At the moment, running `vagrant up` will:
 - Get you a bionic (18.04) base image
-- Download and build a specific feature branch of Terraform (along with the version of Go required) if specified, otherwise it will build from `master`
+- Download and build a specific fork and feature branch of Terraform if specified (along with the version of Go required), otherwise it will build from `master`
 - Expose a workspace that you can use to import/clone your Terraform project into and use within the Vagrant VM
 
 
