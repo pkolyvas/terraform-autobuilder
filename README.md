@@ -1,6 +1,6 @@
 # Terraform Autobuilder
 
-This is a simple Vagrant file and some scripts to setup a disposable environment to assist in testing, validating and/or debugging new features of Terraform and or testing branches of Terraform as part of merging pull requests or evaluating specific contributions.
+This is a simple Vagrant file and some scripts to setup a disposable environment to assist in testing, validating and/or debugging new features of Terraform. It can also help with testing branches of Terraform as part of merging pull requests or evaluating specific contributions.
 
 ## Requirements
 - Vagrant (and virtualbox or similar)
