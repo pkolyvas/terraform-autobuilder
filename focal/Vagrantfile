@@ -1,0 +1,13 @@
+# Set an environmnet variable named TF_BRANCH to build a branch other than master
+# Set an environment variable named TF_FORK
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/focal64"
+  config.vm.define "terraform-build-env"
+  config.vm.provision :shell, path: "bootstrap.sh"
+  config.vm.provision "file", source: "./provisioning/sshd_config", destination: "~/sshd_config"
+  config.vm.provision :shell, privileged: false, path: "terraform.sh", env: {TF_FORK:ENV['TF_FORK'], TF_BRANCH:ENV['TF_BRANCH']}
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.vm.synced_folder "workspace/", "/home/vagrant/workspace"
+  config.ssh.forward_env = ["AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"]
+end
