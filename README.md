@@ -14,11 +14,11 @@ This is a simple Vagrant file and some scripts to setup a disposable environment
 ## What you'll have
 
 At the moment, running `vagrant up` will:
-- Get you a bionic (18.04) base image
+- Get you a bionic (18.04) or focal (20.04) base image
 - Download and build a specific fork and feature branch of Terraform if specified (along with the version of Go required), otherwise it will build from the HashiCorp Terraform repository `master` branch
 - Expose a workspace that you can use to import/clone your Terraform project into and use within the Vagrant VM
+- If you have ENV vars on your host named `AWS_ACCESS_KEY_ID` and `AWS_SECRET_KEY`, they will be forwarded to the vagrant box for use/testing
 
 
 ## To Do
 - Get the windows version working.
-- Fix the ENV VARs for AWS

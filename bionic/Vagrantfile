@@ -2,7 +2,7 @@
 # Set an environment variable named TF_FORK
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "hashicorp/bionic64"
+  config.vm.box = "ubuntu/bionic64"
   config.vm.define "terraform-build-env"
   config.vm.provision :shell, path: "bootstrap.sh"
   config.vm.provision "file", source: "./provisioning/sshd_config", destination: "~/sshd_config"
