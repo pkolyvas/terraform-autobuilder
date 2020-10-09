@@ -56,6 +56,10 @@ make tools
 echo Compiling/installing the feature branch
 go install
 
+echo Updating SSH Config to pass AWS Creds
+sudo mv ~/sshd_config /etc/ssh/sshd_config
+sudo service ssh restart
+
 # cp /home/vagrant/go/bin/terraform /home/vagrant/workspace/
 
 echo Done. SSH into Vagrant and you should be good to go.
